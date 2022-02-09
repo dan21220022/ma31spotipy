@@ -1,6 +1,7 @@
+from uuid import uuid1
+
 from core.main.album import Album
 from core.main.track import Track
-from uuid import uuid1
 
 
 class Artist:
@@ -23,5 +24,3 @@ class Artist:
         if working_album is None:
             working_album = [album for album in self.albums if album.album_id == self.default_album_uuid][0]
         working_album.add_track(track)
-
-

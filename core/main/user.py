@@ -1,8 +1,8 @@
-from core.helpers import constants
-from core.main.artist import *
-from core.helpers.config_reader import read_config
-import core.helpers.constants
 import os
+
+from core.helpers import constants
+from core.helpers.config_reader import read_config
+from core.main.artist import *
 
 
 class User(Artist):
@@ -11,7 +11,7 @@ class User(Artist):
             print("hello", username)
         else:
             super().__init__(uuid1(), username)
-            with open(read_config(constants.CONFIG_PATH, "DataPaths", "users_path") + username+".json", 'w+'):
+            with open(read_config(constants.CONFIG_PATH, "DataPaths", "users_path") + username + ".json", 'w+'):
                 pass
 
     def login(self, username):

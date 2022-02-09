@@ -6,4 +6,5 @@ class Genres:
     TECHNO = "techno"
     HIPHOP = "hiphop"
 
+
 CONFIG_PATH = "config.ini"

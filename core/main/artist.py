@@ -1,6 +1,5 @@
 from core.main.album import Album
 from core.main.track import Track
-import uuid
 from uuid import uuid1
 
 

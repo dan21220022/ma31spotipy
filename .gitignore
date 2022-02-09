@@ -53,6 +53,8 @@ coverage.xml
 *.json
 .json
 *.json*
+main.*
+Main.*
 
 # Translations
 *.mo

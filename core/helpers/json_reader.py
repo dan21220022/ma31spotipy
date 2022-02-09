@@ -8,5 +8,8 @@ def load_json(json_path):
     return None
 
 
-def get_field_val(class_field, field, data: json):
-    return data[class_field][field]
+def get_field_val(data: json, *args):
+    json_data = data
+    for arg in args:
+        json_data = json_data[arg]
+    return json_data

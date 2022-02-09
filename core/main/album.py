@@ -1,4 +1,4 @@
-from track import Track
+from core.main.track import Track
 
 
 class Album:
@@ -8,5 +8,5 @@ class Album:
         self.tracks = []
 
     def add_track(self, new_track: Track):
-        self.tracks.append(new_track)
-        self.tracks = sorted(self.tracks, key=lambda track: track.name)
+        if new_track.track_id not in [track.track_id for track in self.tracks]:
+            self.tracks.append(new_track)

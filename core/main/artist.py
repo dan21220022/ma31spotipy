@@ -1,5 +1,5 @@
-from album import Album
-from track import Track
+from core.main.album import Album
+from core.main.track import Track
 import uuid
 from uuid import uuid1
 
@@ -14,10 +14,10 @@ class Artist:
         self.albums.append(Album(self.default_album_uuid, self.default_album_name))
 
     def add_album(self, new_album: Album):
-        album_names = lambda album: album.album_name
-        if new_album.album_name not in album_names(self.albums):
+        album_names = [album.album_name for album in self.albums]
+        print("album names", album_names)
+        if new_album.album_name not in album_names:
             self.albums.append(new_album)
-            self.albums = sorted(self.albums, key=album_names(self.albums))
 
     def add_track(self, track: Track, album_id):
         working_album = [album for album in self.albums if album_id == album.album_id][0]

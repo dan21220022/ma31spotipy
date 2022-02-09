@@ -1,7 +1,7 @@
 from uuid import uuid1
 
-from core.main.album import Album
-from core.main.track import Track
+from core.base.album import Album
+from core.base.track import Track
 
 
 class Artist:

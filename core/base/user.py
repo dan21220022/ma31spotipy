@@ -2,7 +2,7 @@ import os
 
 from core.helpers import constants
 from core.helpers.config_reader import read_config
-from core.main.artist import *
+from core.base.artist import *
 
 
 class User(Artist):

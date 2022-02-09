@@ -1,4 +1,4 @@
-from core.main.track import Track
+from core.base.track import Track
 
 
 class Album:

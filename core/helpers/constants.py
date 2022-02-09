@@ -1,4 +1,4 @@
-class genres:
+class Genres:
     ROCK = "rock"
     JAZZ = "jazz"
     DUBSTEP = "dubstep"

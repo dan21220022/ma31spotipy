@@ -53,5 +53,16 @@ def get_artist_popular_songs(data, songs: list, artist_id: str) -> List[Track]:
     return sorted(songs, key=attrgetter(constants.SongsFileFields.POPULARITY), reverse=True)[:10]
 
 
-def get_song_from_album(album_id: str) -> List[Track]:
-    pass
+@run_over_path
+def get_song_from_album(data, songs: list, album_id: str) -> List[Track]:
+    if songs is None:
+        songs = []
+
+    artist_id = album_id[0]
+    if artist_id not in str(data):
+        return songs
+
+    new_song = json_reader.get_song(data)
+    if new_song.track_id not in songs:
+        songs.append(new_song)
+    return songs

@@ -2,15 +2,17 @@ from uuid import uuid1
 
 from core.base.album import Album
 from core.base.track import Track
+from core.base.user import User
 
 
-class Artist:
+class Artist(User):
     def __init__(self, artist_id, artist_name):
+        super().__init__(artist_name, artist_id)
         self.artist_id = artist_id
         self.artist_name = artist_name
         self.albums = []
         self.default_album_uuid = uuid1()
-        self.default_album_name = "none"
+        self.default_album_name = "singles"
         self.albums.append(Album(self.default_album_uuid, self.default_album_name))
 
     def add_album(self, new_album: Album):

@@ -3,11 +3,12 @@ from uuid import uuid1
 from core.base.album import Album
 from core.base.track import Track
 from core.base.user import User
+from core.helpers import constants
 
 
 class Artist(User):
     def __init__(self, artist_id, artist_name):
-        super().__init__(artist_name, artist_id)
+        super().__init__(artist_name, artist_id, constants.UserTypes.PREMIUM)
         self.artist_id = artist_id
         self.artist_name = artist_name
         self.albums = []

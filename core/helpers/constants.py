@@ -16,4 +16,15 @@ class SongsFileFields:
     POPULARITY = "popularity"
 
 
+class UserTypes:
+    NORMAL = "normal"
+    PREMIUM = "premium"
+
+
+class Normal_User_Options:
+    PLAYLISTS_COUNT = 5
+    PLAYLIST_SONGS_COUNT = 20
+    SEARCH_COUNT = 5
+
+
 CONFIG_PATH = "config.ini"

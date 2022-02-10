@@ -2,8 +2,9 @@ from typing import List
 
 from core.base.artist import Artist
 from core.base.track import Track
-from core.helpers import json_reader
+from core.helpers import json_reader, constants
 from core.helpers.json_reader import run_over_path
+from operator import attrgetter
 
 
 @run_over_path
@@ -37,8 +38,19 @@ def get_artist_albums(data, albums: list, artist_id: str):
     return albums
 
 
-def get_artist_popular_songs(artist_id: str) -> List[Track]:
-    pass
+@run_over_path
+def get_artist_popular_songs(data, songs: list, artist_id: str) -> List[Track]:
+    if songs is None:
+        songs = []
+
+    artist_id = artist_id[0]
+    if artist_id not in str(data):
+        return songs
+
+    new_song = json_reader.get_song(data)
+    if new_song.track_id not in songs:
+        songs.append(new_song)
+    return sorted(songs, key=attrgetter(constants.SongsFileFields.POPULARITY), reverse=True)[:10]
 
 
 def get_song_from_album(album_id: str) -> List[Track]:

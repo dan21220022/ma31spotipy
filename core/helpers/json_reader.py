@@ -55,4 +55,5 @@ def run_over_path(func):
             else:
                 obj_list = func(data, obj_list)
         return obj_list
+
     return path_runner

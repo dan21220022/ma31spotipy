@@ -1,10 +1,10 @@
+from operator import attrgetter
 from typing import List
 
 from core.base.artist import Artist
 from core.base.track import Track
 from core.helpers import json_reader, constants
 from core.helpers.json_reader import run_over_path
-from operator import attrgetter
 
 
 @run_over_path

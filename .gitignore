@@ -53,10 +53,7 @@ coverage.xml
 *.json
 .json
 *.json*
-main.*
-Main.*
-tests/*
-tests/
+
 *log*.txt
 
 # Translations

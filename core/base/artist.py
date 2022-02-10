@@ -15,7 +15,6 @@ class Artist:
 
     def add_album(self, new_album: Album):
         album_names = [album.album_name for album in self.albums]
-        print("album names", album_names)
         if new_album.album_name not in album_names:
             self.albums.append(new_album)
 

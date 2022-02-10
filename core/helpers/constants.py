@@ -1,6 +1,3 @@
-from core.base.track import Track
-
-
 class Genres:
     ROCK = "rock"
     JAZZ = "jazz"
@@ -16,7 +13,7 @@ class SongsFileFields:
     ARTISTS = "artists"
     ID = "id"
     NAME = "name"
-    popularity = "popularity"
+    POPULARITY = "popularity"
 
 
 CONFIG_PATH = "config.ini"

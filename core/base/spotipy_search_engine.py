@@ -1,10 +1,8 @@
-import os
 from typing import List
 
-from core.base.album import Album
 from core.base.artist import Artist
 from core.base.track import Track
-from core.helpers import json_reader, config_reader, constants
+from core.helpers import json_reader
 from core.helpers.json_reader import run_over_path
 
 
@@ -22,6 +20,21 @@ def get_all_artists(data, artists=[]) -> List[Artist]:
             artist.add_album(new_album)
             artist.add_track(json_reader.get_song(data), new_album.album_id)
     return artists
+
+
+@run_over_path
+def get_artist_albums(data, albums: list, artist_id: str):
+    if albums is None:
+        albums = []
+
+    artist_id = artist_id[0]
+    if artist_id not in str(data):
+        return albums
+
+    new_album = json_reader.get_album(data).album_name
+    if new_album not in albums:
+        albums.append(new_album)
+    return albums
 
 
 def get_artist_popular_songs(artist_id: str) -> List[Track]:

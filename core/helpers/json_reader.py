@@ -45,11 +45,14 @@ def get_song(data) -> Track:
 
 
 def run_over_path(func):
-    def path_runner():
+    def path_runner(*args):
         obj_list = []
         songs_dir = config_reader.read_config(constants.CONFIG_PATH, "DataPaths", "songs_path")
         for path in os.listdir(songs_dir):
             data = load_json(songs_dir + path)
-            obj_list = func(data, obj_list)
+            if args:
+                obj_list = func(data, obj_list, args)
+            else:
+                obj_list = func(data, obj_list)
         return obj_list
     return path_runner
